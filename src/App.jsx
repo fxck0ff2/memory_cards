@@ -6,8 +6,8 @@ function App() {
   const [endModal, setEndModal] = useState(false)
   const [cards, setCards] = useState([]);
   const [solved, setSolved] = useState([]);
-  const [guessed, setGuessed] = useState(0); // вгадані пари
-  const [attempts, setAttempts] = useState(0); // попытки
+  const [guessed, setGuessed] = useState(0);
+  const [attempts, setAttempts] = useState(0);
   
   const number = [1, 2, 3,4,5,6];
   var openCard = [];
