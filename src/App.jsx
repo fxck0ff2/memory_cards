@@ -9,7 +9,7 @@ function App() {
   const [guessed, setGuessed] = useState(0);
   const [attempts, setAttempts] = useState(0);
   
-  const number = [1];
+  const number = [1, 2, 3,4,5,6];
   var openCard = [];
 
   const shuffle = (array) => {
