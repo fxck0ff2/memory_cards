@@ -9,7 +9,7 @@ function App() {
   const [guessed, setGuessed] = useState(0);
   const [attempts, setAttempts] = useState(0);
   
-  const number = [1, 2, 3,4,5,6];
+  const number = [1];
   var openCard = [];
 
   const shuffle = (array) => {
@@ -47,8 +47,7 @@ function App() {
         setSolved(updatedSolved);
         setGuessed(guessed + 1);
         if (guessed == number.length - 1) {
-          console.log('123');
-          endGame();
+          setEndModal(true);
         }
       } else {
         document.querySelector('section').style.pointerEvents = 'none';
@@ -61,8 +60,20 @@ function App() {
     }
   }
 
-  const endGame = () => { // підрахунку вгаданих пар,
-    setEndModal(true);
+  const EndModal = () => {
+    return(
+      <div id="endGame">
+          <div id="infoNew">
+            <h1>Всі карточки вгадані</h1>
+            <div>
+              <p><h3>Вгадано пар:</h3><br /><strong>{guessed}</strong></p>
+              <p><h3>Кількість спроб:</h3><br /><strong>{attempts}</strong></p>
+            </div>
+            <button onClick={() => newGame()}>Почати нову гру?</button>
+          </div>
+          <div id="cover"></div>
+      </div>
+    )
   }
   
   return (
@@ -79,17 +90,7 @@ function App() {
         )
       })}
       {(endModal) ? 
-      <div id="endGame">
-          <div id="infoNew">
-            <h1>Всі карточки вгадані</h1>
-            <div>
-              <p><h3>Вгадано пар:</h3><br /><strong>{guessed}</strong></p>
-              <p><h3>Кількість спроб:</h3><br /><strong>{attempts}</strong></p>
-            </div>
-            <button onClick={() => newGame()}>Почати нову гру?</button>
-          </div>
-          <div id="cover"></div>
-      </div> : ''}
+      <EndModal /> : ''}
       </section>
     </>
   )
