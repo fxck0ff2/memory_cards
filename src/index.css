@@ -9,33 +9,28 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   width: 100%;
-  min-height: calc(100vh - 40px);
+  min-height: 100vh;
   gap: 15px;
   padding: 20px 20px;
   box-sizing: border-box;
 }
-button{
+#root > button{
   width: 100%;
-  max-width: 1200px;
-  height: 35px;
-  position: sticky;
+  max-width: 200px;
+  height: 100px;
   z-index: 10000;
-  transition: 350ms;
-}
-button[game = false]{
-  transform: translateY(50%);
-  top: 50%;
-}
-button[game = true]{
-  transform: translateY(0%);
-  top: 10px;
+  background-color: darkgreen;
+  border: none;
+  border-radius: 12px;
+  color: white;
 }
 section{
   width: 100%;
-  max-width: 1200px;
-  height: calc(100% - 35px - 20px);
+  max-width: 800px;
+  height: calc(50% - 35px - 20px);
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -50,9 +45,58 @@ section[game = true]{
   transition: 300ms ease-in-out;
   opacity: 1;
 }
+#endGame{
+  position: fixed;
+  top: 0;
+  left: 0 ;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+#cover{
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background-color: black;
+  opacity: .4;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+#infoNew{
+  color: #f4f4f4;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 450px;
+  height: 480px;
+  border-radius: 8px;
+  border: 3px solid darkorange;
+  position: relative;
+  background-color: darkcyan;
+  z-index: 2;
+}
+#infoNew div{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+#infoNew div h3{
+  margin: 0;
+}
+#infoNew div strong{
+  font-size: 24px;
+}
 .cardDiv{
-  width: 23%;
-  height: 30vh;
+  width: 22%;
+  height: 25vh;
   max-height: 270px;
   position: relative;
 }
@@ -87,6 +131,9 @@ section[game = true]{
 }
 .cardDiv[state = close] .card_front{
   transform: rotateY(180deg);
+}
+.cardDiv[state = open]{
+  pointer-events: none;
 }
 .cardDiv[state = open] .card_back{
   transform: rotateY(180deg);
