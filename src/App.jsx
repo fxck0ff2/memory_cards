@@ -68,6 +68,7 @@ function App() {
             <div>
               <p><h3>Вгадано пар:</h3><br /><strong>{guessed}</strong></p>
               <p><h3>Кількість спроб:</h3><br /><strong>{attempts}</strong></p>
+              <p><h3>Відсоток вгадувань:</h3><br /><strong>{Math.round(guessed / attempts * 100)}%</strong></p>
             </div>
             <button onClick={() => newGame()}>Почати нову гру?</button>
           </div>
